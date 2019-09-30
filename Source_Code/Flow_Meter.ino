@@ -1,15 +1,23 @@
+//Microcontroller firmware for flow meter. Uses a modified version of the sliding DFT.
+
+
 #include <ADC.h>
 #include "sliding_dft.h"
-#define discardPin 14 //next to LED pin and before sensor pins. Controls discard valve position
+#define APin A1 //pin for A sensor
+#define BPin A2 //pin for B sensor
+#define discardPin 14 //connect to discard valve if using
 #define ledPin 13
-#define pi 3.141592 //something to do with circles
+#define pi 3.141592654 //something to do with circles
+
 
 //Variables
 //Timing
+
+int looptime = 10000; //in micros
+
 int current_time = 0;
 int old_time = 0;
 int gap = 0;
-int looptime = 10000; //in micros
 bool wait = true;
 
 //Speed calculation
@@ -21,16 +29,18 @@ float phase1;
 float phaseGap;
 
 //Stability heuristic calculation
+float accVar = 0.05; //unstable with Q above this value
 int sampleCheck = 150; //number of samples to wait between comparisons
-float accVar = 0.12; //above this value and the output will announce a "blip"
-float corrSum = 0; //proportional to integrated DFTs (in interesting region)
+
+float corrSum = 0; // I
 float corrSumOld = 0; // Check with value from sampleCheck samples ago
 int stabCheckCount = 0;
 float stabValue;
 
 //Output
+float gapVolume = 0.785; //volume between detectors in ul. (~0.785 for 1 mm ID) 
+
 float freqSpace;
-float gapVolume = 0.777; //volume between detectors in ul. (~0.785 for 1 mm ID) 
 float flowSpeed;
 float flowRate;
 float timeDelay;
@@ -87,7 +97,7 @@ void loop() {
   }
 
   // read sensors and update sDFTS
-  ADC::Sync_result result = adc->analogSyncRead(A1, A2);
+  ADC::Sync_result result = adc->analogSyncRead(APin, BPin);
 
   int value0 = result.result_adc0; 
   int value1 = result.result_adc1; 
