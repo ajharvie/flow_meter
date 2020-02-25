@@ -2,7 +2,7 @@ Raw data for plots shown in paper.
 
 "Calibration_Data.csv" contains raw signals used to produce figure 5.
 
-"QC_data.csv" contains data recorded during acquisition of video S3.
+"QC_data.csv" contains data recorded during acquisition of video S3 (not shown in paper)
 
 "Q_traces.csv" contains the raw data plotted in figs 6 & 7.
 
