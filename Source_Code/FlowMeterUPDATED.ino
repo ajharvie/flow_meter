@@ -23,7 +23,7 @@ SOFTWARE.
 #define discardPin 14 //next to LED pin and before sensor pins. Controls discard valve position
 #define ledPin 13
 #define pi 3.141592 //something to do with circles
-#define numBins 750
+#define numBins 200
 
 
 //Variables
