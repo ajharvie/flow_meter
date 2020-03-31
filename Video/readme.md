@@ -1,0 +1,4 @@
+Videos of the flow meter in action. Extended captions and information on the videos are included in the paper and its supporting information, but in brief:
+1) SI1.mp4 shows footage of the flow stream and measured **Q** value vs time for a flow containing two discrete defects, in a segmented flow of (dyed) DCM and water.
+2) SI2.mp4 shows similar data to SI1.mp4 but for a constantly disordered flow.
+3) SI3.mp4 shows application of the sensor to quality control. The sensor is mounted in a black opaque box to the left, and switches a two-position valve between "discard" and "collect" positions depending on flow uniformity. The model "reaction" is the mixing of blue- and orange-dyed DCM in a segmented flow with water, to make lovely brown-coloured slugs. Deviations from uniformity result in uneven mixing of dyes, and a change in the colour of the resulting slugs.
