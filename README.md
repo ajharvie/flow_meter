@@ -4,5 +4,5 @@ This repository contains firmware and design files required to implement a flow 
 
 The paper's supporting information contains intructions on assembly, programming and calibration.
 
-*Andrew J. Harvie, John C. de Mello*
+*Andrew J. Harvie & John C. de Mello*
 
